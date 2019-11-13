@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="jquery.countdown.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+	body{
+		width:100vw;
+		height:100vh;
+		color: white;
+		background: -webkit-radial-gradient(ellipse,#444444,black);
+		background: -o-radial-gradient(ellipse,#444444,black);
+		background: -moz-radial-gradient(ellipse,#444444,black);
+		background: radial-gradient(ellipse,#444444,black);
+	}
+
+	.btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 12px;
+            text-align: center;
+	}
+
+	.btn-circle.btn-md {
+            width: 50px;
+            height: 50px;
+            padding: 7px 10px;
+            border-radius: 25px;
+            font-size: 10px;
+            text-align: center;
+    }
+
+	.show-grid {
+	  margin-bottom: 15px;
+	}
+
+	.Score {
+		color: #33FF33;
+		font-weight: bold;
+		font-size: 2em;
+	}
+
+	#OpenMoreFunction {
+		font-family: DFKai-sb;
+		font-weight: bold;
+	}
+  </style>
+
+  <script>
+	$(document).ready(function(){
+
+		//handle TeamA
+		$("#TeamA_dash button").on( "click", function() {
+			$('#TeamA_Score').text(parseInt($('#TeamA_Score').text()) + parseInt(($(this).val())));
+		});
+
+		//handle TeamB
+		$("#TeamB_dash button").on( "click", function() {
+			$('#TeamB_Score').text(parseInt($('#TeamB_Score').text()) + parseInt(($(this).val())));
+		});
+
+        //handle function
+		$("#Use_Count_Down").on( "click", function() {
+			$('#Use_Count_Down').addClass('d-none');
+			$('#MoreFunction').removeClass('d-none');
+			$('#CountDown').text('00:03');
+		});
+
+		//StartCountDown
+        $("#ToggleCountDown").on( "click", function() {
+            var CountDownTime = $('#CountDown').text();
+			var GetTime = $('#CountDown').text().split(':');
+            var Second = parseInt(GetTime[0]) * 60 + parseInt(GetTime[1]);
+            var Seconds = new Date().getTime() + (Second * 1000);
+
+            $('#ToggleCountDownPause').show();
+
+			$("#CountDown").countdown(Seconds, function(event) {
+                    var timestamp = event.strftime('%M:%S');
+                    $(this).text(timestamp);
+
+                    //init count down time
+                    if(timestamp == "00:00") {
+                        console.log(CountDownTime);
+                        $('#CountDown').text(CountDownTime);
+                        if($('#period').attr('period') == "4") {//判定是否到了第四節結束
+                            $('#ToggleCountDown').hide();
+                            $('#ToggleCountDownPause').hide();
+                            $('#CountDown').text("比賽結束");
+
+                        }else {
+                            $('#period').text('第' + (parseFloat($('#period').attr('period')) + 0.5 ) + '節');
+                            $('#period').attr("period", (parseFloat($('#period').attr('period')) + 0.5));
+                        }
+                        //console.log($('#period').attr('period'));
+                    }
+			});
+	  	});
+
+        //暫停
+		$("#ToggleCountDownPause").on( "click", function() {
+            $("#CountDown").countdown('pause')
+            $("#CountDown").append('(暫停)').show();
+            $(this).hide();
+	  	});
+
+
+	});
+
+  </script>
+</head>
+
+<body>
+	<div class="container">
+	  <div class="row show-grid text-center">
+		<div id="teamA" class="col-lg-2">TeamA</div>
+		<div class="col-lg-8">VS</div>
+		<div id="teamB" class="col-lg-2">TeamB</div>
+	  </div>
+
+	  <div class="row show-grid text-center align-items-center">
+		<div class="col-lg-12" id="period" period='1'>第1節</div>
+		<div class="col-lg-2" id="TeamA_dash">
+			<button type="button" class="btn btn-primary btn-circle btn-md" value="1">+1</button>
+			<button type="button" class="btn btn-primary btn-circle btn-md" value="2">+2</button>
+			<button type="button" class="btn btn-primary btn-circle btn-md" value="3">+3</button>
+			<button type="button" class="btn btn-danger btn-circle btn-md" value="-1">-1</button>
+			<button type="button" class="btn btn-danger btn-circle btn-md" value="-2">-2</button>
+			<button type="button" class="btn btn-danger btn-circle btn-md" value="-3">-3</button>
+		</div>
+		<div class="col-lg-8 Score">
+			<span id="TeamA_Score">0</span>
+			<span> : </span>
+		    <span id="TeamB_Score">0</span>
+		</div>
+		<div class="col-lg-2" id="TeamB_dash">
+			<button type="button" class="btn btn-primary btn-circle btn-md" value="1">+1</button>
+			<button type="button" class="btn btn-primary btn-circle btn-md" value="2">+2</button>
+			<button type="button" class="btn btn-primary btn-circle btn-md" value="3">+3</button>
+			<button type="button" class="btn btn-danger btn-circle btn-md" value="-1">-1</button>
+			<button type="button" class="btn btn-danger btn-circle btn-md" value="-2">-2</button>
+			<button type="button" class="btn btn-danger btn-circle btn-md" value="-3">-3</button>
+		</div>
+	  </div>
+
+	  <div class="row show-grid text-center align-items-center">
+		<div id="OpenMoreFunction" class="col-lg-12">
+			<button type="button" id="Use_Count_Down" class="btn btn-secondary">啟用計時</button>
+		</div>
+	  </div>
+
+	  <div id="MoreFunction" class="row d-none text-center align-items-center">
+			<div class="col-lg-2">
+				<button type="button" class="btn btn-secondary">設定時間</button>
+			</div>
+			<div class="col-lg-8">
+				<div id="CountDown"></div>
+			</div>
+			<div class="col-lg-2">
+				<button type="button" id="ToggleCountDown" class="btn btn-secondary">開始</button>
+				<button type="button" id="ToggleCountDownPause" class="btn btn-secondary">暫停</button>
+			</div>
+	  </div>
+	</div>
+</body>
+</html>
