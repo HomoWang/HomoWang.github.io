@@ -1,516 +1,578 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<style>
-		/* Article:  https://superdevresources.com/full-background-image-css/ */
-		body {
-			background: url(https://superdevresources.com/wp-content/uploads/2015/12/new-york-background.jpg) no-repeat center center fixed;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-		}
+  <title>Eric的個人履歷</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-		.content {
-			text-align: center;
-			font-family: 'Open Sans', sans-serif;
-			color: #fff;
-			margin: 40px auto;
-			background: rgba(22,22,22, 0.8);
-			width: 100%;
-			max-width: 960px;
-			border-radius: 5px;
-			padding-bottom: 32px;
-		}
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-		h1, h3, h1 a, h3 a {
-			min-height: 120px;
-			width: 90%;
-			max-width: 700px;
-			vertical-align: middle;
-			text-align: center;
-			margin: 0 auto;
-			text-decoration: none;
-			color: #fff;
-			padding-top: 80px;
-		}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-		h6, h6 a {
-			width: 90%;
-			max-width: 700px;
-			vertical-align: middle;
-			text-align: center;
-			margin: 0 auto;
-			text-decoration: none;
-			color: #fff;
-			padding-top: 20px;
-			font-weight: bolder;
-		}
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-		p {
-			width: 90%;
-			max-width: 700px;
-			text-align: left;
-			/*margin: 0 auto;*/
-			/*padding-bottom: 32px;*/
-		}
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-		/*------------------------------*/
-
-		#mySidenav a {
-			position: fixed;
-			left: -110px;
-			transition: 0.3s;
-			padding: 15px;
-			width: 150px;
-			text-decoration: none;
-			font-size: 20px;
-			color: white;
-			border-radius: 0 5px 5px 0;
-		}
-
-		#mySidenav a:hover {
-			left: 0;
-		}
-
-		#about {
-			top: 100px;
-			background-color: #4CAF50;
-		}    
-		#projects {
-			top: 160px;
-			background-color: #f44336;
-		}
-		#blog {
-			top: 220px;
-			background-color: #2196F3;
-		}
-		#contact {
-			top: 280px;
-			background-color: #555;
-		}
-        #FireEdit {
-            top: 340px;
-            background-color: #53FF53;
-        }
-		/*-----------timeline---------*/
-		.circle {
-			padding: 13px 20px;
-			border-radius: 50%;
-			background-color: #ED8D8D;
-			color: #fff;
-			max-height: 50px;
-			z-index: 2;
-		}
-
-		.how-it-works.row .col-2 {
-			align-self: stretch;
-		}
-
-		.how-it-works.row .col-2::after {
-			content: "";
-			position: absolute;
-			border-left: 3px solid #ED8D8D;
-			z-index: 1;
-		}
-
-		.how-it-works.row .col-2.bottom::after {
-			height: 50%;
-			left: 50%;
-			top: 50%;
-		}
-
-		.how-it-works.row .col-2.full::after {
-			height: 100%;
-			left: calc(50% - 3px);
-		}
-
-		.how-it-works.row .col-2.full-l::after {
-			height: 100%;
-			left: calc(50% + 0.5px);
-		}
-
-            .how-it-works.row .col-2.top::after {
-                height: 50%;
-                left: 50%;
-                top: 0;
-            }
-
-
-		.timeline div {
-			padding: 0;
-			height: 40px;
-		}
-
-		.timeline hr {
-			border-top: 3px solid #ED8D8D;
-			margin: 0;
-			top: 17px;
-			position: relative;
-		}
-
-		.timeline .col-2 {
-			display: flex;
-			overflow: hidden;
-		}
-
-		.timeline .corner {
-			border: 3px solid #ED8D8D;
-			width: 100%;
-			position: relative;
-			border-radius: 15px;
-		}
-
-		.timeline .top-right {
-			left: 50%;
-			top: -50%;
-		}
-
-		.timeline .left-bottom {
-			left: -50%;
-			top: calc(50% - 3px);
-		}
-
-		.timeline .top-left {
-			left: -50%;
-			top: -50%;
-		}
-
-		.timeline .right-bottom {
-			left: 50%;
-			top: calc(50% - 3px);
-		}
-
-
-		/*----------------------------*/
-		.headshot {
-			margin-top: 40px;
-		}
-
-		.profiles {
-			margin: 40px;
-		}
-
-		.profiles > p {
-			font-weight: bolder;
-		}
-
-		p > span, a {
-			font-weight: initial;
-		}
-
-		li {
-			text-align: initial;
-		}
-
-		h5 {
-			font-weight: bolder;
-			padding-bottom: 10px;
-			color:#00DDDD;
-		}
-
-		span > hr {
-			-moz-border-bottom-colors: none;
-			-moz-border-image: none;
-			-moz-border-left-colors: none;
-			-moz-border-right-colors: none;
-			-moz-border-top-colors: none;
-			border-color: #EEEEEE -moz-use-text-color #FFFFFF;
-			border-style: solid none;
-			border-width: 1px 0;
-			margin: 18px 0;
-		}
-	</style>
+  <!-- =======================================================
+  * Template Name: iPortfolio - v1.4.1
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
-	<div id="mySidenav" class="sidenav">
-		<a href="#" id="about" onclick="openCity(event, 'about_t')">基本資料</a>
-		<a href="#" id="projects" onclick="openCity(event, 'Tokyo')">簡介</a>
-		<a href="#" id="blog" onclick="openCity(event, 'Paris')">作品簡介</a>
-		<a href="FireEdit/index.html" id="FireEdit">FireEdit</a>
-		<!--<a href="#" id="contact">作品展示</a>  經歷作品、個人作品、聯絡我  -->
-	</div>
 
-	<div class="content" id="about_t">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-4 text-center">
-					<h3>ABOUT ME</h3>
-					<img style="border-radius: 50%;" src="x2.jpg" class="headshot">
-					<h6>1993/08/30, Taipei</h6>
-					<h6>現任<b>漢磊科技 自動化工程師</b></h6>
-				</div>
-				<div class="col-lg-8">
-					<div class="profiles">
-						<h3>王元昌</h3>
-						<p></p>
-						<p>
-							<span>我是王元昌，資工系背景出生，過去接觸過許多不同領域，主要為</span>
-						</p>
-						<ul>
-							<li>機台自動化控制程式開發與維護</li>
-							<li>機台通訊程式開發與維護</li>
-							<li>網頁全端開發</li>
-							<li>Android APP開發</li>
-							<li>資訊安全自動化檢測平台與程式開發</li>       	
-						</ul>
-						<p>
-							<span>如果您願意更深入了解，可以由左方的選單進入您欲了解的項目</span>
-						</p>	
+  <!-- ======= Mobile nav toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!---------------經歷----------------------------->
-	<div class="content" id="Tokyo">
-		<div class="">
-			<div class="container">
-				<h2 class="pb-3 pt-2 border-bottom mb-5">自我介紹 -- 經歷</h2>
-				<!--first section-->
-				<div class="row align-items-center how-it-works d-flex">
-					<div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
-						<div class="circle font-weight-bold">1</div>
-					</div>
-					<div class="col-8">
-						<h5>2011 -- 國立虎尾科技大學 學士</h5>
-						<p>[專題製作]</p>
-						<p>大學時期專題討論中擔任組長，與組員一同開發餐廳介紹的網站與APP，期間指導教授的要求讓我學習到如何撰寫提案企畫書、需求分析、系統分析與系統設計報告，了解事前完整規劃的重要性</p>
-						<span><hr></span>
-						<p>[社團經歷]</p>
-						<p>參加武術性社團”合氣道社”，並於大二到大三時擔任【副社長】一職，負責</p>
-						<ul>
-							<li>規劃招生/迎新/社遊等大型活動</li>
-							<li>設計課程</li>
-							<li>費用籌備與管理</li>    	
-						</ul>
-						<p>在此期間學習到如何領導團隊、【統整】與【歸納】技巧與【財務管理】</p>
-					</div>
-				</div>
-				<!--path between 1-2-->
-				<div class="row timeline">
-					<div class="col-2">
-						<div class="corner top-right"></div>
-					</div>
-					<div class="col-8">
-						<hr />
-					</div>
-					<div class="col-2">
-						<div class="corner left-bottom"></div>
-					</div>
-				</div>
-				<!--second section-->
-				<div class="row align-items-center justify-content-end how-it-works d-flex">
-					<div class="col-8 text-right">
-						<h5>2015 -- 國立雲林科技大學 碩士</h5>
-						<p>[Android惡意程式的分析計畫]</p>
-						<p>期間與財團法人國家高速網路與計算中心之計畫案內容為Android惡意程式分析計畫，透過基於Linux核心來做惡意行為偵測</p>
-						<span><hr></span>
-						<p>[碩士論文]</p>
-						<p>針對HTML5所開發的Web APP安全進行漏洞的檢測系統平台，使用python、beautifulsoup與apktool等，透過分析建立出可能被注入的路徑，並檢查是否有潛在被注入的攻擊點，檢驗是否存在著SQL Injection或XSS等漏洞</p>
-					</div>
-					<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-						<div class="circle font-weight-bold">2</div>
-					</div>
-				</div>
-				<!--path between 2-3-->
-				<div class="row timeline">
-					<div class="col-2">
-						<div class="corner right-bottom"></div>
-					</div>
-					<div class="col-8">
-						<hr />
-					</div>
-					<div class="col-2">
-						<div class="corner top-left"></div>
-					</div>
-				</div>
-				<!--third section-->
-				<div class="row align-items-center how-it-works d-flex">
-	                	<!--
-							<div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
-	                        	<div class="circle font-weight-bold">3</div>
-	                    	</div>
-	                    -->
-	                    <div class="col-2 text-center full-l d-inline-flex justify-content-center align-items-center">
-	                    	<div class="circle font-weight-bold">3</div>
-	                    </div>
-	                    <div class="col-8">
-	                    	<h5>2016 -- 雲科 資訊工程系 科技部計畫雲科負責人</h5>
-	                    	<p>[專題製作]</p>
-	                    	<p>擔任科技部計畫-具深度學習及完整安全交易平台之雲科負責人，此計畫著重在'業界出題，學界解題'的開發案，為了與合作之公司保障其未來育推廣APP安全性作保障，建置一個自動化平台</p>
-	                    	<ul>
-	                    		<li>建置檢測網頁平台</li>
-	                    		<li>建立Android後端分析程式</li>
-	                    		<li>iOS後端分析規劃</li>
-	                    		<li>經費管控</li>    	
-	                    		<li>團隊成員能力配置</li>    	
-	                    	</ul>
-	                    </div>
-	                </div>
-	                <!--path between 3-4-->
-	                <div class="row timeline">
-	                	<div class="col-2">
-	                		<div class="corner top-right"></div>
-	                	</div>
-	                	<div class="col-8">
-	                		<hr />
-	                	</div>
-	                	<div class="col-2">
-	                		<div class="corner left-bottom"></div>
-	                	</div>
-	                </div>
-	                <!--four section-->
-	                <div class="row align-items-center justify-content-end how-it-works d-flex">
-	                	<div class="col-8 text-right">
-	                		<h5>2017 -- 漢磊科技 自動化工程師</h5>
-	                		<p>於公司機台自動化部門擔任資深工程師一職，期間專案的規模完全不同，更加的理解到架構規劃、時程管理、資料庫設計、功能測試與修改等每個環節重要性</p>
-	                	</div>
-	                	<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-	                		<div class="circle font-weight-bold">4</div>
-	                	</div>
-	                </div>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
 
-	            </div>
-	        </div>
-
-	    </div>
-
-	    <!----------------作品簡介------------------------->
-
-	    <div class="content" id="Paris">
-	    	<div class="">
-	    		<div class="container">
-	    			<h2 class="pb-3 pt-2 border-bottom mb-5">自我介紹 -- 作品簡介</h2>
-	    			<!--first section-->
-	    			<div class="row align-items-center how-it-works d-flex">
-	    				<div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
-	    					<div class="circle font-weight-bold">1</div>
-	    				</div>
-	    				<div class="col-8">
-	    					<h5>2011 -- 國立虎尾科技大學 學士</h5>
-	    					<p>作品名稱：食膳玩家</p>
-	    					<p>以消費者使用方便性與餐飲業營運效率性為基礎，開發多家餐廳所提供之豐富餐飲資訊的App行動雲端平台。</p>
-	    					<p>成果：2014 CityGO Smart APP開發者大賽 – 最佳應用創新獎</p>
-	    					<p>相關技術：Ontology、NFC、QR Code、Hadoop</p>
-	    					<p>使用語言：HTML、PHP、Javascript、jQuery、 JAVA</p>
-	    				</div>
-	    			</div>
-	    			<!--path between 1-2-->
-	    			<div class="row timeline">
-	    				<div class="col-2">
-	    					<div class="corner top-right"></div>
-	    				</div>
-	    				<div class="col-8">
-	    					<hr />
-	    				</div>
-	    				<div class="col-2">
-	    					<div class="corner left-bottom"></div>
-	    				</div>
-	    			</div>
-	    			<!--second section-->
-	    			<div class="row align-items-center justify-content-end how-it-works d-flex">
-	    				<div class="col-8 text-right">
-	    					<h5>2015 -- 國立雲林科技大學 碩士</h5>
-	    					<p>作品名稱：Android惡意程式檢測</p>
-	    					<p>透過網頁操作虛擬機安裝上傳的APK檔來進行動態分析，透過基於Linux核心來做惡意行為與偵測 。</p>
-	    					<p>成果：於國家實驗研究院舉辦之2017資訊安全研發平台計畫成果發表研討會擔任講者。</p>
-
-	    					<p>相關技術：VMRC、動態分析、靜態分析、網路封包攔截</p>
-	    					<p>使用語言：Python、C、HTML、PHP、Javascript 、jQuery</p>
-	    				</div>
-	    				<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-	    					<div class="circle font-weight-bold">2</div>
-	    				</div>
-	    			</div>
-	    			<!--path between 2-3-->
-	    			<div class="row timeline">
-	    				<div class="col-2">
-	    					<div class="corner right-bottom"></div>
-	    				</div>
-	    				<div class="col-8">
-	    					<hr />
-	    				</div>
-	    				<div class="col-2">
-	    					<div class="corner top-left"></div>
-	    				</div>
-	    			</div>
-	    			<!--third section-->
-	    			<div class="row align-items-center how-it-works d-flex">
-                	<!--
-						<div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
-                        	<div class="circle font-weight-bold">3</div>
-                    	</div>
-                    -->
-                    <div class="col-2 text-center full-l d-inline-flex justify-content-center align-items-center">
-                    	<div class="circle font-weight-bold">3</div>
-                    </div>
-                    <div class="col-8">
-                    	<h5>2016 -- 雲科 資訊工程系 科技部計畫雲科負責人</h5>
-                    	<p>作品名稱：具深度學習及完整安全交易平台</p>
-                    	<p>建置針對WEB APP安全進行漏洞檢測平台，預防可能遇到之SQL Injection、XSS等攻擊，並且檢測權限等是否使用不當。</p>
-                    	<p>成果：合作公司要求將已開發完成第一階段研發成果雛型系統技術轉移。</p>
-                    	<p>相關技術：Cordova、PhoneGap、BeautifulSoup</p>
-                    	<p>使用語言：Python、HTML、PHP、Javascript 、jQuery</p>
-                    </div>
-                </div>
-                <!--path between 3-4-->
-                <div class="row timeline">
-                	<div class="col-2">
-                		<div class="corner top-right"></div>
-                	</div>
-                	<div class="col-8">
-                		<hr />
-                	</div>
-                	<div class="col-2">
-                		<div class="corner left-bottom"></div>
-                	</div>
-                </div>
-                <!--four section-->
-                <div class="row align-items-center justify-content-end how-it-works d-flex">
-                	<div class="col-8 text-right">
-                		<h5>2017 -- 漢磊科技 自動化工程師</h5>
-                		<p>相關技術：</p>
-                		<ul>
-                			<li>機台自動化控制程式開發與維護</li>
-                			<li>機台通訊程式開發與維護</li>
-                			<li>WEB系統平台開發(報表、繪圖)</li>  	
-                		</ul>
-                		<p>使用語言：Delphi、HTML、C#、Javascript、jQuery</p>
-                	</div>
-                	<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-                		<div class="circle font-weight-bold">4</div>
-                	</div>
-                </div>
-
-            </div>
+      <div class="profile">
+        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">王元昌(Eric)</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/wan.chang.12/" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/homoisme/" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>首頁</span></a></li>
+          <li><a href="#about"><i class="bx bx-user"></i> <span>關於我</span></a></li>
+          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>個人簡歷</span></a></li>
+          <li><a href="#portfolio"><i class="bx bx-book-content"></i> 作品集</a></li>
+          <li><a href="#services"><i class="bx bx-server"></i> 服務項目</a></li>
+          <li><a href="#contact"><i class="bx bx-envelope"></i> 聯絡我</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
     </div>
+  </header><!-- End Header -->
 
-    
-    <script>
-    	function openCity(evt, cityName) {
-    		var i, tabcontent, tablinks;
-    		tabcontent = document.getElementsByClassName("content");
-    		for (i = 0; i < tabcontent.length; i++) {
-    			tabcontent[i].style.display = "none";
-    		}
-    		tablinks = document.getElementsByClassName("tablinks");
-    		for (i = 0; i < tablinks.length; i++) {
-    			tablinks[i].className = tablinks[i].className.replace(" active", "");
-    		}
-    		document.getElementById(cityName).style.display = "block";
-    		evt.currentTarget.className += " active";
-    	}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>王元昌 Eric</h1>
+      <p>我是一名... <span class="typed" data-typed-items="後端工程師, EAD工程師 , 初階攝影師"></span></p>
+    </div>
+  </section><!-- End Hero -->
 
-		// Get the element with id="defaultOpen" and click on it
-		document.getElementById("about").click();
-	</script>
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>關於我</h2>
+          <p>
+          	Hi，我是Eric，目前是專職的後端工程師，因為興趣我接觸過許多不同領域的工作(Web、資訊安全、半導體)，有時也會寫寫沒用的小東西來玩 <br>
+          	例如Android透過藍芽操控PC、寫些爬蟲爬些想看的資訊(圖片? 、 <s>嘗試繞過公司上傳/下載限制</s> ，下班倒數計時器....等 <br>
+          	偶爾架個Minecraft Server與朋友一起當個快樂肥宅👍
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>後端工程師 / Backend Engineer.</h3>
+            <p class="font-italic">
+           	  <br>
+              <b> &nbsp;&nbsp;&nbsp;&nbsp; 知道的越多，才知知道的越少</b>
+              <br><br>
+			</p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="icofont-rounded-right"></i> <strong>生日:</strong> 1993/08/30</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>部落格:</strong> www.example.com</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>居住地:</strong> 台灣 台北市</li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="icofont-rounded-right"></i> <strong>學歷:</strong> 雲林科技大學資訊工程系 碩士</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>聯絡信箱:</strong> ericwang.work2@gmail.com</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>工作狀態:</strong> 在職中</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              <br>
+              我喜歡我工作中遇到的同事，我感激每位讓我在職場中成長的貴人， <br>
+              在工作的經歷中，同事間相處愉快才是我最重視的，<br>
+              我認為唯有能在工作中獲得快樂與成就才是能夠做的長久的秘訣，
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>個人簡歷</h2>
+          <p>
+			目前在 <b>祥順資訊有限公司</b> 擔任 <b>.NET軟體設計工程師</b>，<br>
+            主要進行ASP.NET MVC 程式開發與維護、API串接、排程撰寫等 <br>
+            有時需擔任PM與SD的腳色，帶領團隊(5人以下)快速地完成專案並驗收
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Sumary</h3>
+            <div class="resume-item pb-0">
+              <h4>王元昌 Eric</h4>
+              <p>
+              	<em>
+              		工作總年資約為3年半，期間經歷過學校專案人員、半導體與後端工程師，
+              		內容大約可分為<b>資訊安全</b>、 <b>機台自動化</b>與 <b>網頁開發與維護</b>三大項
+                </em>
+              </p>
+              <ul>
+                <li>現居桃園市 中壢區</li>
+                <li>0952-724-365</li>
+                <li>ericwang.work2@gmail.com</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>國立雲林科技大學 &nbsp;&nbsp; 碩士</h4>
+              <h5>2015 - 2017</h5>
+              <p><em>工程學院 資訊工程系</em></p>
+              <p>
+              	致力於研究網頁安全與Android惡意程式的分析
+              	<ul>
+              		<li>與財團法人國家高速網路與計算中心之計畫案內容為Android惡意程式分析計畫，檢測是否有竊取敏感資訊、攔截簡訊、安裝程式等惡意行為</li>
+              		<li>針對Web APP安全進行漏洞的檢測系統，透過自動化分析，系統後端使用python及其他工具進行分析，檢測系統是否存在可能的危險性</li>
+              	</ul>
+              </p>
+            </div>
+            <div class="resume-item">
+              <h4>國立虎尾科技大學 &nbsp;&nbsp; 學士</h4>
+              <h5>2011 - 2015</h5>
+              <p><em>電機資訊學院 資訊工程系</em></p>
+              <p>
+              	學習到如何撰寫提案企畫書、需求分析、系統分析與系統設計報告，了解事前完整規劃的重要性，
+				<ul>
+              		<li>專題討論中擔任組長，與組員一同開發餐廳介紹的網站與APP，並於CityGO  Smart  APP  開發者大賽進入決賽，獲得"最佳行動支付應用創新獎"</li>
+              	</ul>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>祥順資訊有限公司 .NET軟體設計工程師</h4>
+              <h5>2020 - 仍在職</h5>
+              <p><em>桃園市 中壢區 </em></p>
+              <ul>
+                <li>入職後一周內即進入主要專案進行程式開發， <b>目前擔任主要開發人員</b></li>
+                <li>負責軟體之分析、設計、API串接以及程式撰寫</li>
+                <li>規劃執行軟體架構及模組之設計，並控管軟體設計進度</li>
+                <li>進行軟體之測試與修改</li>
+                <li>規劃、執行與維護量產的產品</li>
+                <li>協助研發軟體新技術與新工具</li>
+                <li>管控軟體開發成本</li>
+                <li>同時擔任PM、SA與SD的腳色，帶領團隊(5人以下)快速完成專案、上線與驗收</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>漢磊科技股份有限公司 EAD資深工程師</h4>
+              <h5>2018 - 2020</h5>
+              <p><em>新竹市 新竹科學園區</em></p>
+              <ul>
+                <li>協助產線自動化系統推展、自動化設備／系統介面之維護改善、規劃、維護自動控制系統</li>
+                <li>EAP (Equipment Automation Program) 機台自動化控制程式開發(SECS)</li>
+                <li>RCMS (Recipe Control Management System)機台程式參數規範管理與控制系統維護與需求開發</li>
+                <li>EPDS (Equipment Process Data System) 生產參數蒐集與分析系統維護與需求開發</li>
+                <li>EAP GUI 機台即時生產狀況顯示系統維護與需求開發 (FAB EQ Monitor)</li>
+                <li>MES Interface & EAP自動化程式介面維護</li>
+                <li>量測機台自動化開發與維護</li>
+                <li>AD(Analog / Digital data receive & trigger)平台維護</li>
+                <li>關聯性資料庫設計及開發</li>
+                <li>ASP.NET MVC 應用軟體程式設計及開發</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="icofont-computer"></i></div>
+            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
+            <h4 class="title"><a href="">Dolor Sitema</a></h4>
+            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="icofont-earth"></i></div>
+            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="icofont-image"></i></div>
+            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="icofont-settings"></i></div>
+            <h4 class="title"><a href="">Nemo Enim</a></h4>
+            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="icofont-tasks-alt"></i></div>
+            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="owl-carousel testimonials-carousel">
+
+          <div class="testimonial-item" data-aos="fade-up">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4>Ceo &amp; Founder</h4>
+          </div>
+
+          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4>Designer</h4>
+          </div>
+
+          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4>Store Owner</h4>
+          </div>
+
+          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4>Freelancer</h4>
+          </div>
+
+          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4>Entrepreneur</h4>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>

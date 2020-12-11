@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+		/* Article:  https://superdevresources.com/full-background-image-css/ */
+		body {
+			background: url(https://superdevresources.com/wp-content/uploads/2015/12/new-york-background.jpg) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+
+		.content {
+			text-align: center;
+			font-family: 'Open Sans', sans-serif;
+			color: #fff;
+			margin: 40px auto;
+			background: rgba(22,22,22, 0.8);
+			width: 100%;
+			max-width: 960px;
+			border-radius: 5px;
+			padding-bottom: 32px;
+		}
+
+		h1, h3, h1 a, h3 a {
+			min-height: 120px;
+			width: 90%;
+			max-width: 700px;
+			vertical-align: middle;
+			text-align: center;
+			margin: 0 auto;
+			text-decoration: none;
+			color: #fff;
+			padding-top: 80px;
+		}
+
+		h6, h6 a {
+			width: 90%;
+			max-width: 700px;
+			vertical-align: middle;
+			text-align: center;
+			margin: 0 auto;
+			text-decoration: none;
+			color: #fff;
+			padding-top: 20px;
+			font-weight: bolder;
+		}
+
+		p {
+			width: 90%;
+			max-width: 700px;
+			text-align: left;
+			/*margin: 0 auto;*/
+			/*padding-bottom: 32px;*/
+		}
+
+		/*------------------------------*/
+
+		#mySidenav a {
+			position: fixed;
+			left: -110px;
+			transition: 0.3s;
+			padding: 15px;
+			width: 150px;
+			text-decoration: none;
+			font-size: 20px;
+			color: white;
+			border-radius: 0 5px 5px 0;
+		}
+
+		#mySidenav a:hover {
+			left: 0;
+		}
+
+		#about {
+			top: 100px;
+			background-color: #4CAF50;
+		}    
+		#projects {
+			top: 160px;
+			background-color: #f44336;
+		}
+		#blog {
+			top: 220px;
+			background-color: #2196F3;
+		}
+		#contact {
+			top: 280px;
+			background-color: #555;
+		}
+        #FireEdit {
+            top: 340px;
+            background-color: #53FF53;
+        }
+		/*-----------timeline---------*/
+		.circle {
+			padding: 13px 20px;
+			border-radius: 50%;
+			background-color: #ED8D8D;
+			color: #fff;
+			max-height: 50px;
+			z-index: 2;
+		}
+
+		.how-it-works.row .col-2 {
+			align-self: stretch;
+		}
+
+		.how-it-works.row .col-2::after {
+			content: "";
+			position: absolute;
+			border-left: 3px solid #ED8D8D;
+			z-index: 1;
+		}
+
+		.how-it-works.row .col-2.bottom::after {
+			height: 50%;
+			left: 50%;
+			top: 50%;
+		}
+
+		.how-it-works.row .col-2.full::after {
+			height: 100%;
+			left: calc(50% - 3px);
+		}
+
+		.how-it-works.row .col-2.full-l::after {
+			height: 100%;
+			left: calc(50% + 0.5px);
+		}
+
+            .how-it-works.row .col-2.top::after {
+                height: 50%;
+                left: 50%;
+                top: 0;
+            }
+
+
+		.timeline div {
+			padding: 0;
+			height: 40px;
+		}
+
+		.timeline hr {
+			border-top: 3px solid #ED8D8D;
+			margin: 0;
+			top: 17px;
+			position: relative;
+		}
+
+		.timeline .col-2 {
+			display: flex;
+			overflow: hidden;
+		}
+
+		.timeline .corner {
+			border: 3px solid #ED8D8D;
+			width: 100%;
+			position: relative;
+			border-radius: 15px;
+		}
+
+		.timeline .top-right {
+			left: 50%;
+			top: -50%;
+		}
+
+		.timeline .left-bottom {
+			left: -50%;
+			top: calc(50% - 3px);
+		}
+
+		.timeline .top-left {
+			left: -50%;
+			top: -50%;
+		}
+
+		.timeline .right-bottom {
+			left: 50%;
+			top: calc(50% - 3px);
+		}
+
+
+		/*----------------------------*/
+		.headshot {
+			margin-top: 40px;
+		}
+
+		.profiles {
+			margin: 40px;
+		}
+
+		.profiles > p {
+			font-weight: bolder;
+		}
+
+		p > span, a {
+			font-weight: initial;
+		}
+
+		li {
+			text-align: initial;
+		}
+
+		h5 {
+			font-weight: bolder;
+			padding-bottom: 10px;
+			color:#00DDDD;
+		}
+
+		span > hr {
+			-moz-border-bottom-colors: none;
+			-moz-border-image: none;
+			-moz-border-left-colors: none;
+			-moz-border-right-colors: none;
+			-moz-border-top-colors: none;
+			border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+			border-style: solid none;
+			border-width: 1px 0;
+			margin: 18px 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+		<a href="#" id="about" onclick="openCity(event, 'about_t')">基本資料</a>
+		<a href="#" id="projects" onclick="openCity(event, 'Tokyo')">簡介</a>
+		<a href="#" id="blog" onclick="openCity(event, 'Paris')">作品簡介</a>
+		<a href="FireEdit/index.html" id="FireEdit">FireEdit</a>
+		<!--<a href="#" id="contact">作品展示</a>  經歷作品、個人作品、聯絡我  -->
+	</div>
+
+	<div class="content" id="about_t">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 text-center">
+					<h3>ABOUT ME</h3>
+					<img style="border-radius: 50%;" src="x2.jpg" class="headshot">
+					<h6>1993/08/30, Taipei</h6>
+					<h6>現任<b>漢磊科技 自動化工程師</b></h6>
+				</div>
+				<div class="col-lg-8">
+					<div class="profiles">
+						<h3>王元昌</h3>
+						<p></p>
+						<p>
+							<span>我是王元昌，資工系背景出生，過去接觸過許多不同領域，主要為</span>
+						</p>
+						<ul>
+							<li>機台自動化控制程式開發與維護</li>
+							<li>機台通訊程式開發與維護</li>
+							<li>網頁全端開發</li>
+							<li>Android APP開發</li>
+							<li>資訊安全自動化檢測平台與程式開發</li>       	
+						</ul>
+						<p>
+							<span>如果您願意更深入了解，可以由左方的選單進入您欲了解的項目</span>
+						</p>	
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!---------------經歷----------------------------->
+	<div class="content" id="Tokyo">
+		<div class="">
+			<div class="container">
+				<h2 class="pb-3 pt-2 border-bottom mb-5">自我介紹 -- 經歷</h2>
+				<!--first section-->
+				<div class="row align-items-center how-it-works d-flex">
+					<div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
+						<div class="circle font-weight-bold">1</div>
+					</div>
+					<div class="col-8">
+						<h5>2011 -- 國立虎尾科技大學 學士</h5>
+						<p>[專題製作]</p>
+						<p>大學時期專題討論中擔任組長，與組員一同開發餐廳介紹的網站與APP，期間指導教授的要求讓我學習到如何撰寫提案企畫書、需求分析、系統分析與系統設計報告，了解事前完整規劃的重要性</p>
+						<span><hr></span>
+						<p>[社團經歷]</p>
+						<p>參加武術性社團”合氣道社”，並於大二到大三時擔任【副社長】一職，負責</p>
+						<ul>
+							<li>規劃招生/迎新/社遊等大型活動</li>
+							<li>設計課程</li>
+							<li>費用籌備與管理</li>    	
+						</ul>
+						<p>在此期間學習到如何領導團隊、【統整】與【歸納】技巧與【財務管理】</p>
+					</div>
+				</div>
+				<!--path between 1-2-->
+				<div class="row timeline">
+					<div class="col-2">
+						<div class="corner top-right"></div>
+					</div>
+					<div class="col-8">
+						<hr />
+					</div>
+					<div class="col-2">
+						<div class="corner left-bottom"></div>
+					</div>
+				</div>
+				<!--second section-->
+				<div class="row align-items-center justify-content-end how-it-works d-flex">
+					<div class="col-8 text-right">
+						<h5>2015 -- 國立雲林科技大學 碩士</h5>
+						<p>[Android惡意程式的分析計畫]</p>
+						<p>期間與財團法人國家高速網路與計算中心之計畫案內容為Android惡意程式分析計畫，透過基於Linux核心來做惡意行為偵測</p>
+						<span><hr></span>
+						<p>[碩士論文]</p>
+						<p>針對HTML5所開發的Web APP安全進行漏洞的檢測系統平台，使用python、beautifulsoup與apktool等，透過分析建立出可能被注入的路徑，並檢查是否有潛在被注入的攻擊點，檢驗是否存在著SQL Injection或XSS等漏洞</p>
+					</div>
+					<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+						<div class="circle font-weight-bold">2</div>
+					</div>
+				</div>
+				<!--path between 2-3-->
+				<div class="row timeline">
+					<div class="col-2">
+						<div class="corner right-bottom"></div>
+					</div>
+					<div class="col-8">
+						<hr />
+					</div>
+					<div class="col-2">
+						<div class="corner top-left"></div>
+					</div>
+				</div>
+				<!--third section-->
+				<div class="row align-items-center how-it-works d-flex">
+	                	<!--
+							<div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
+	                        	<div class="circle font-weight-bold">3</div>
+	                    	</div>
+	                    -->
+	                    <div class="col-2 text-center full-l d-inline-flex justify-content-center align-items-center">
+	                    	<div class="circle font-weight-bold">3</div>
+	                    </div>
+	                    <div class="col-8">
+	                    	<h5>2016 -- 雲科 資訊工程系 科技部計畫雲科負責人</h5>
+	                    	<p>[專題製作]</p>
+	                    	<p>擔任科技部計畫-具深度學習及完整安全交易平台之雲科負責人，此計畫著重在'業界出題，學界解題'的開發案，為了與合作之公司保障其未來育推廣APP安全性作保障，建置一個自動化平台</p>
+	                    	<ul>
+	                    		<li>建置檢測網頁平台</li>
+	                    		<li>建立Android後端分析程式</li>
+	                    		<li>iOS後端分析規劃</li>
+	                    		<li>經費管控</li>    	
+	                    		<li>團隊成員能力配置</li>    	
+	                    	</ul>
+	                    </div>
+	                </div>
+	                <!--path between 3-4-->
+	                <div class="row timeline">
+	                	<div class="col-2">
+	                		<div class="corner top-right"></div>
+	                	</div>
+	                	<div class="col-8">
+	                		<hr />
+	                	</div>
+	                	<div class="col-2">
+	                		<div class="corner left-bottom"></div>
+	                	</div>
+	                </div>
+	                <!--four section-->
+	                <div class="row align-items-center justify-content-end how-it-works d-flex">
+	                	<div class="col-8 text-right">
+	                		<h5>2017 -- 漢磊科技 自動化工程師</h5>
+	                		<p>於公司機台自動化部門擔任資深工程師一職，期間專案的規模完全不同，更加的理解到架構規劃、時程管理、資料庫設計、功能測試與修改等每個環節重要性</p>
+	                	</div>
+	                	<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+	                		<div class="circle font-weight-bold">4</div>
+	                	</div>
+	                </div>
+
+	            </div>
+	        </div>
+
+	    </div>
+
+	    <!----------------作品簡介------------------------->
+
+	    <div class="content" id="Paris">
+	    	<div class="">
+	    		<div class="container">
+	    			<h2 class="pb-3 pt-2 border-bottom mb-5">自我介紹 -- 作品簡介</h2>
+	    			<!--first section-->
+	    			<div class="row align-items-center how-it-works d-flex">
+	    				<div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
+	    					<div class="circle font-weight-bold">1</div>
+	    				</div>
+	    				<div class="col-8">
+	    					<h5>2011 -- 國立虎尾科技大學 學士</h5>
+	    					<p>作品名稱：食膳玩家</p>
+	    					<p>以消費者使用方便性與餐飲業營運效率性為基礎，開發多家餐廳所提供之豐富餐飲資訊的App行動雲端平台。</p>
+	    					<p>成果：2014 CityGO Smart APP開發者大賽 – 最佳應用創新獎</p>
+	    					<p>相關技術：Ontology、NFC、QR Code、Hadoop</p>
+	    					<p>使用語言：HTML、PHP、Javascript、jQuery、 JAVA</p>
+	    				</div>
+	    			</div>
+	    			<!--path between 1-2-->
+	    			<div class="row timeline">
+	    				<div class="col-2">
+	    					<div class="corner top-right"></div>
+	    				</div>
+	    				<div class="col-8">
+	    					<hr />
+	    				</div>
+	    				<div class="col-2">
+	    					<div class="corner left-bottom"></div>
+	    				</div>
+	    			</div>
+	    			<!--second section-->
+	    			<div class="row align-items-center justify-content-end how-it-works d-flex">
+	    				<div class="col-8 text-right">
+	    					<h5>2015 -- 國立雲林科技大學 碩士</h5>
+	    					<p>作品名稱：Android惡意程式檢測</p>
+	    					<p>透過網頁操作虛擬機安裝上傳的APK檔來進行動態分析，透過基於Linux核心來做惡意行為與偵測 。</p>
+	    					<p>成果：於國家實驗研究院舉辦之2017資訊安全研發平台計畫成果發表研討會擔任講者。</p>
+
+	    					<p>相關技術：VMRC、動態分析、靜態分析、網路封包攔截</p>
+	    					<p>使用語言：Python、C、HTML、PHP、Javascript 、jQuery</p>
+	    				</div>
+	    				<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+	    					<div class="circle font-weight-bold">2</div>
+	    				</div>
+	    			</div>
+	    			<!--path between 2-3-->
+	    			<div class="row timeline">
+	    				<div class="col-2">
+	    					<div class="corner right-bottom"></div>
+	    				</div>
+	    				<div class="col-8">
+	    					<hr />
+	    				</div>
+	    				<div class="col-2">
+	    					<div class="corner top-left"></div>
+	    				</div>
+	    			</div>
+	    			<!--third section-->
+	    			<div class="row align-items-center how-it-works d-flex">
+                	<!--
+						<div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
+                        	<div class="circle font-weight-bold">3</div>
+                    	</div>
+                    -->
+                    <div class="col-2 text-center full-l d-inline-flex justify-content-center align-items-center">
+                    	<div class="circle font-weight-bold">3</div>
+                    </div>
+                    <div class="col-8">
+                    	<h5>2016 -- 雲科 資訊工程系 科技部計畫雲科負責人</h5>
+                    	<p>作品名稱：具深度學習及完整安全交易平台</p>
+                    	<p>建置針對WEB APP安全進行漏洞檢測平台，預防可能遇到之SQL Injection、XSS等攻擊，並且檢測權限等是否使用不當。</p>
+                    	<p>成果：合作公司要求將已開發完成第一階段研發成果雛型系統技術轉移。</p>
+                    	<p>相關技術：Cordova、PhoneGap、BeautifulSoup</p>
+                    	<p>使用語言：Python、HTML、PHP、Javascript 、jQuery</p>
+                    </div>
+                </div>
+                <!--path between 3-4-->
+                <div class="row timeline">
+                	<div class="col-2">
+                		<div class="corner top-right"></div>
+                	</div>
+                	<div class="col-8">
+                		<hr />
+                	</div>
+                	<div class="col-2">
+                		<div class="corner left-bottom"></div>
+                	</div>
+                </div>
+                <!--four section-->
+                <div class="row align-items-center justify-content-end how-it-works d-flex">
+                	<div class="col-8 text-right">
+                		<h5>2017 -- 漢磊科技 自動化工程師</h5>
+                		<p>相關技術：</p>
+                		<ul>
+                			<li>機台自動化控制程式開發與維護</li>
+                			<li>機台通訊程式開發與維護</li>
+                			<li>WEB系統平台開發(報表、繪圖)</li>  	
+                		</ul>
+                		<p>使用語言：Delphi、HTML、C#、Javascript、jQuery</p>
+                	</div>
+                	<div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+                		<div class="circle font-weight-bold">4</div>
+                	</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+    	function openCity(evt, cityName) {
+    		var i, tabcontent, tablinks;
+    		tabcontent = document.getElementsByClassName("content");
+    		for (i = 0; i < tabcontent.length; i++) {
+    			tabcontent[i].style.display = "none";
+    		}
+    		tablinks = document.getElementsByClassName("tablinks");
+    		for (i = 0; i < tablinks.length; i++) {
+    			tablinks[i].className = tablinks[i].className.replace(" active", "");
+    		}
+    		document.getElementById(cityName).style.display = "block";
+    		evt.currentTarget.className += " active";
+    	}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("about").click();
+	</script>
+</body>
+</html>
